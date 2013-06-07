@@ -8,7 +8,7 @@ fi
 
 function battery_prompt() {
 if is_battery_discharging -lt 1; then
-  local on_mains='∞'
+  local on_mains='%{%F{blue}%}∞%{%f%}'
 fi
 
 local charge_percent=$(acpi | cut -f2 -d ',' | tr -cd '[:digit:]')
