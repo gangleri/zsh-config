@@ -34,23 +34,23 @@ unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
 
   export EDITOR='/usr/bin/vim'
-  export NODE_HOME=/opt/node_current
-  export NODE_PATH='/opt/node_current/lib/node_modules':/usr/local/lib/jsctags
-  export MONGO_HOME='/opt/mongo_current'
-  export REDIS_HOME='/opt/redis_current'
-
-  export PATH=$PATH:$NODE_HOME/bin:$MONGO_HOME/bin:$REDIS_HOME/src
 
 elif [[ "$unamestr" == 'Darwin' ]]; then
 
   export EDITOR='/usr/local/bin/vim'
-  export NODE_PATH=/usr/local/lib/node_modules/
-  export PATH=$PATH:/usr/local/share/npm/bin
 
 fi 
 
+export NODE_HOME='/opt/node_current'
+export NODE_PATH='/opt/node_current/lib/node_modules'
+#:/usr/local/lib/jsctags
+export MONGO_HOME='/opt/mongo_current'
+export REDIS_HOME='/opt/redis_current'
+export CASSANDRA_HOME='/opt/cassandra_current'
+
+export PATH=$PATH:$NODE_HOME/bin:$MONGO_HOME/bin:$REDIS_HOME/src:$CASSANDRA_HOME/bin
+
 export PATH=/usr/local/bin:$PATH
-export CONFIGBK=~/Dropbox/config
 export GIT_EDITOR=vim
 
 if [[ "$unamestr" == 'Linux' ]]; then
@@ -61,6 +61,7 @@ fi
 
 alias o="open . &"
 alias lsh="ls -lh"
+alias lisa="ls -lisah"
 
 function popcmd {
 history| awk '{a [$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
@@ -93,3 +94,6 @@ python -m SimpleHTTPServer "$port"
 alias tu="top -o cpu"
 alias tm="top -o vsize"
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
