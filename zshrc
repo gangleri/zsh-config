@@ -43,12 +43,14 @@ fi
 
 export NODE_HOME='/opt/node_current'
 export NODE_PATH='/opt/node_current/lib/node_modules'
+export GOROOT=/opt/go
 #:/usr/local/lib/jsctags
 export MONGO_HOME='/opt/mongo_current'
 export REDIS_HOME='/opt/redis_current'
 export CASSANDRA_HOME='/opt/cassandra_current'
+export KAFKA_HOME='/opt/kafka_current'
 
-export PATH=$PATH:$NODE_HOME/bin:$MONGO_HOME/bin:$REDIS_HOME/bin:$CASSANDRA_HOME/bin
+export PATH=$PATH:$NODE_HOME/bin:$MONGO_HOME/bin:$REDIS_HOME/bin:$CASSANDRA_HOME/bin:$KAFKA_HOME/bin:$GOROOT/bin
 
 export PATH=/usr/local/bin:$PATH
 export GIT_EDITOR=vim
