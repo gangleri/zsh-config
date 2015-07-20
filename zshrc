@@ -43,14 +43,24 @@ fi
 
 export NODE_HOME='/opt/node_current'
 export NODE_PATH='/opt/node_current/lib/node_modules'
+export NSQ_HOME='/opt/nsq_current'
 export GOROOT=/opt/go
 #:/usr/local/lib/jsctags
 export MONGO_HOME='/opt/mongo_current'
 export REDIS_HOME='/opt/redis_current'
 export CASSANDRA_HOME='/opt/cassandra_current'
 export KAFKA_HOME='/opt/kafka_current'
+export ETCD_HOME='/opt/etcd_current'
+export JAVA_HOME='/opt/jdk1.8'
 
-export PATH=$PATH:$NODE_HOME/bin:$MONGO_HOME/bin:$REDIS_HOME/bin:$CASSANDRA_HOME/bin:$KAFKA_HOME/bin:$GOROOT/bin
+# project homes
+export DPD_HOME=~/code/nearForm/dpd
+
+export PATH=$PATH:$NODE_HOME/bin:$MONGO_HOME/bin:$REDIS_HOME/bin
+export PATH=$PATH:$CASSANDRA_HOME/bin:$KAFKA_HOME/bin:$GOROOT/bin:$NSQ_HOME/bin
+export PATH=$PATH:$HOME/.bin:$ETCD_HOME:/opt/direnv:$JAVA_HOME/bin
+export PATH=$PATH:/opt/apache-ant-1.9.4/bin:/opt/apache-maven-3.2.5/bin:/opt/gradle/bin
+export PATH=$PATH:/opt/soatest
 
 export PATH=/usr/local/bin:$PATH
 export GIT_EDITOR=vim
@@ -65,6 +75,7 @@ alias o="open . &"
 alias lsh="ls -lh"
 alias lisa="ls -lisah"
 alias nukeDaMotherFucker="kill -9"
+alias dl="docker ps -l -q"
 
 function popcmd {
 history| awk '{a [$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
@@ -79,8 +90,17 @@ clear
 ls
 }
 
+function clt {
+clear
+tree $*
+}
+
 function psv {
 open -a /Applications/Utilities/Activity\ Monitor.app
+}
+
+function mkdirp {
+  mkdir -p $1
 }
 
 function kindleDir {
@@ -100,7 +120,6 @@ pwd|pbcopy
 # Process management
 alias tu="top -o cpu"
 alias tm="top -o vsize"
-
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -161,3 +180,9 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ###-end-npm-completion-###
+
+eval "$(direnv hook zsh)"
+
+export NVM_DIR="/home/gangleri/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[[ -s "/home/gangleri/.gvm/scripts/gvm" ]] && source "/home/gangleri/.gvm/scripts/gvm"
