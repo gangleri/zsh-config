@@ -1,1 +1,0 @@
-alias ccat='pygmentize -g'
