@@ -26,6 +26,7 @@ bindkey -v
 # hashes
 hash -d code=$HOME/code
 hash -d downloads=$HOME/Downloads
+hash -d vimplugs=$HOME/code/vim/plugins
 
 # opts
 setopt autocd
@@ -35,16 +36,33 @@ setopt EXTENDED_GLOB
 setopt numericglobsort
 
 # alias
-alias vi='vim'
-alias vizsh='vim ~/.zshrc'
-alias vivi='vim ~/.vimrc'
-alias srczsh='source ~/.zshrc'
-alias ..='cd ..'
 alias zc='zcalc'
+
+alias vi='vim'
+alias viess='vim ~/.essential.vim'
+alias videmo='vim -u ~/.essential.vim ~/.vimrc'
+alias vimrc='vim ~/.vimrc'
+
+alias zshrc='$EDITOR ~/.zshrc'
+alias srczshrc='source ~/.zshrc'
+
+alias i3config='$EDITOR ~/.config/i3/config '
+alias i3statusconfig='$EDITOR ~/.config/i3status/config'
+alias i3reload='i3-msg reload'
+
+alias ..='cd ..'
 alias mb='udisksctl mount -b /dev/sdb1'
 alias ub='udisksctl unmount -b /dev/sdb1'
+
 alias kpo='ecryptfs-insert-wrapped-passphrase-into-keyring ~/.ecryptfs/wrapped-passphrase && mount -i /home/gangleri/keepass'
 alias kpc='umount /home/gangleri/keepass'
+
+alias gits='git status'
+alias gitc='git commit'
+alias gitcl='git clone'
+
+alias rkhunt='sudo rkhunter --check'
+alias rkpropupd='sudo rkhunter --propupd'
 
 # autoload
 autoload zmv
@@ -54,6 +72,8 @@ autoload zcalc
 zstyle ':completion:*' completer _expand _complete _correct
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*' squeeze-slashes true
+
+# functions
 
 source $ZSH/oh-my-zsh.sh
 
