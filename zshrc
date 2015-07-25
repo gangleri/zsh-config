@@ -46,7 +46,7 @@ alias vimrc='vim ~/.vimrc'
 alias zshrc='$EDITOR ~/.zshrc'
 alias srczshrc='source ~/.zshrc'
 
-alias i3config='$EDITOR ~/.config/i3/config '
+alias i3config='$EDITOR ~/.config/i3/config'
 alias i3statusconfig='$EDITOR ~/.config/i3status/config'
 alias i3reload='i3-msg reload'
 
@@ -57,6 +57,8 @@ alias ub='udisksctl unmount -b /dev/sdb1'
 alias kpo='ecryptfs-insert-wrapped-passphrase-into-keyring ~/.ecryptfs/wrapped-passphrase && mount -i /home/gangleri/keepass'
 alias kpc='umount /home/gangleri/keepass'
 
+alias gitconfig='$EDITOR ~/code/git-config/gitconfig'
+alias gitdiff='git difftool'
 alias gits='git status'
 alias gitc='git commit'
 alias gitcl='git clone'
