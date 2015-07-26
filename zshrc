@@ -62,6 +62,7 @@ alias gitdiff='git difftool'
 alias gits='git status'
 alias gitc='git commit'
 alias gitcl='git clone'
+alias gitch='git checkout'
 
 alias rkhunt='sudo rkhunter --check'
 alias rkpropupd='sudo rkhunter --propupd'
