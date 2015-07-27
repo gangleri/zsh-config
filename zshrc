@@ -27,6 +27,7 @@ bindkey -v
 hash -d code=$HOME/code
 hash -d downloads=$HOME/Downloads
 hash -d vimplugs=$HOME/code/vim/plugins
+hash -d config=$HOME/.config
 
 # opts
 setopt autocd
