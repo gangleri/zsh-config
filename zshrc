@@ -20,6 +20,7 @@ export LANG=en_GB.UTF-8
 export EDITOR="vim"
 export GIT_EDITOR=$EDITOR
 export NVM_DIR="/home/gangleri/.nvm"
+mypath=$(dirname $0:A)
 
 bindkey -v
 
@@ -78,6 +79,11 @@ zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*' squeeze-slashes true
 
 # functions
+
+# source settings I keep private
+for f in $HOME/code/zsh-config/private/*; do
+	source $f
+done
 
 source $ZSH/oh-my-zsh.sh
 
