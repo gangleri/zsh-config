@@ -11,7 +11,7 @@ HIST_STAMPS="dd-mm-yyyy"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(git autoenv colored-man cp zsh-syntax-highlighting)
+plugins=(git ssh-agent autoenv colored-man cp zsh-syntax-highlighting)
 
 # User configuration
 export UPDATE_ZSH_DAYS=3
@@ -20,6 +20,7 @@ export LANG=en_GB.UTF-8
 export EDITOR="vim"
 export GIT_EDITOR=$EDITOR
 export NVM_DIR="/home/gangleri/.nvm"
+export BROWSER=chromium
 mypath=$(dirname $0:A)
 
 bindkey -v
