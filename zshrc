@@ -11,25 +11,31 @@ HIST_STAMPS="dd-mm-yyyy"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(git ssh-agent autoenv colored-man cp zsh-syntax-highlighting)
+plugins=(git ssh-agent colored-man cp zsh-syntax-highlighting)
 
 # User configuration
 export UPDATE_ZSH_DAYS=3
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/opt/android-studio/bin
 export LANG=en_GB.UTF-8
 export EDITOR="vim"
 export GIT_EDITOR=$EDITOR
 export NVM_DIR="/home/gangleri/.nvm"
 export BROWSER=chromium
+export DEFAULT_USER=$USER
 mypath=$(dirname $0:A)
 
 bindkey -v
 
 # hashes
 hash -d code=$HOME/code
+hash -d nodeschool=$HOME/code/nodeschool
+hash -d containers=$HOME/containers
 hash -d downloads=$HOME/Downloads
 hash -d vimplugs=$HOME/code/vim/plugins
 hash -d config=$HOME/.config
+hash -d videos=$HOME/Videos
 
 # opts
 setopt autocd
@@ -37,6 +43,7 @@ setopt complete_aliases
 setopt nocaseglob
 setopt EXTENDED_GLOB
 setopt numericglobsort
+setopt NO_BEEP
 
 # alias
 alias zc='zcalc'
@@ -81,12 +88,15 @@ zstyle ':completion:*' squeeze-slashes true
 
 # functions
 
-# source settings I keep private
-for f in $HOME/code/zsh-config/private/*; do
-	source $f
-done
-
 source $ZSH/oh-my-zsh.sh
+
+eval "$(direnv hook zsh)"
 
 [ -s "$NVM_DIR/nvm.sh" ] && source $NVM_DIR/nvm.sh
 
+source $HOME/.evm/scripts/evm
+
+
+[[ -s "/home/gangleri/.gvm/scripts/gvm" ]] && source "/home/gangleri/.gvm/scripts/gvm"
+source /usr/sbin/activate.sh
+[[ -s /home/gangleri/.rsvm/rsvm.sh ]] && . /home/gangleri/.rsvm/rsvm.sh # This loads RSVM
