@@ -90,8 +90,6 @@ zstyle ':completion:*' squeeze-slashes true
 
 source $ZSH/oh-my-zsh.sh
 
-eval "$(direnv hook zsh)"
-
 [ -s "$NVM_DIR/nvm.sh" ] && source $NVM_DIR/nvm.sh
 
 source $HOME/.evm/scripts/evm
