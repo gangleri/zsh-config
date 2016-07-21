@@ -1,6 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/gangleri/.oh-my-zsh
 
+export TERM="xterm-256color"
+
 ZSH_THEME="agnoster"
 CASE_SENSITIVE="false" # Case insensitive completion
 COMPLETION_WAITING_DOTS="true"
@@ -90,13 +92,7 @@ zstyle ':completion:*' squeeze-slashes true
 
 source $ZSH/oh-my-zsh.sh
 
-eval "$(direnv hook zsh)"
-
 [ -s "$NVM_DIR/nvm.sh" ] && source $NVM_DIR/nvm.sh
-
-source $HOME/.evm/scripts/evm
 
 
 [[ -s "/home/gangleri/.gvm/scripts/gvm" ]] && source "/home/gangleri/.gvm/scripts/gvm"
-source /usr/sbin/activate.sh
-[[ -s /home/gangleri/.rsvm/rsvm.sh ]] && . /home/gangleri/.rsvm/rsvm.sh # This loads RSVM
