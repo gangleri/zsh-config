@@ -96,3 +96,6 @@ source $ZSH/oh-my-zsh.sh
 
 
 [[ -s "/home/gangleri/.gvm/scripts/gvm" ]] && source "/home/gangleri/.gvm/scripts/gvm"
+
+# autoenv
+source /usr/local/bin/activate.sh
