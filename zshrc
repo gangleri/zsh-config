@@ -17,7 +17,7 @@ plugins=(git ssh-agent colored-man cp zsh-syntax-highlighting)
 
 # User configuration
 export UPDATE_ZSH_DAYS=3
-export PATH="/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="$PATH:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/opt/android-studio/bin
 export LANG=en_GB.UTF-8
@@ -98,4 +98,4 @@ source $ZSH/oh-my-zsh.sh
 [[ -s "/home/gangleri/.gvm/scripts/gvm" ]] && source "/home/gangleri/.gvm/scripts/gvm"
 
 # autoenv
-source /usr/local/bin/activate.sh
+# source /usr/local/bin/activate.sh
