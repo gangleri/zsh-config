@@ -1,100 +1,110 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/gangleri/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="agnoster"
 CASE_SENSITIVE="false" # Case insensitive completion
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd-mm-yyyy"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+plugins=(
+	cargo
+	colored-man-pages
+	colorize
+	cp
+	dirhistory
+	django
+	docker
+	git
+	golang
+	kubectl
+	npm
+	nvm
+	pep8
+	pip
+	pipenv
+	ssh-agent
+	sudo
+	vi-mode
+	vue
+	yarn
+	zsh-syntax-highlighting
+	zsh_reload
+)
 
-plugins=(git ssh-agent colored-man cp zsh-syntax-highlighting)
-
-# User configuration
-export UPDATE_ZSH_DAYS=3
-export PATH="/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/opt/android-studio/bin
-export LANG=en_GB.UTF-8
-export EDITOR="vim"
-export GIT_EDITOR=$EDITOR
-export NVM_DIR="/home/gangleri/.nvm"
+export ANDROID_HOME=${HOME}/Library/Android/sdk
 export BROWSER=chromium
 export DEFAULT_USER=$USER
-mypath=$(dirname $0:A)
+export EDITOR="nvim"
+export GIT_EDITOR=$EDITOR
+export GOPATH=$(go env GOPATH)
+export HH_CONFIG=hicolor        # get more colors
+export HISTSIZE=999999999
+export HISTFILE=~/.zsh_history  # ensure history file visibility
+export SAVEHIST=$HISTSIZE
+export LANG=en_GB.UTF-8
+export NVM_DIR="$HOME/.nvm"
+export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH=$PATH:$HOME/go/bin:$HOME/.cargo/bin
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export MANPATH="/usr/local/opt/make/libexec/gnuman:$MANPATH"
+export UPDATE_ZSH_DAYS=3
 
-bindkey -v
-
-# hashes
-hash -d code=$HOME/code
-hash -d nodeschool=$HOME/code/nodeschool
-hash -d containers=$HOME/containers
+hash -d code=$HOME/Code
 hash -d downloads=$HOME/Downloads
-hash -d vimplugs=$HOME/code/vim/plugins
-hash -d config=$HOME/.config
-hash -d videos=$HOME/Videos
+hash -d go=$HOME/go/src
 
-# opts
+setopt EXTENDED_GLOB
+setopt NO_BEEP
 setopt autocd
 setopt complete_aliases
 setopt nocaseglob
-setopt EXTENDED_GLOB
 setopt numericglobsort
-setopt NO_BEEP
-
-# alias
-alias zc='zcalc'
-
-alias vi='vim'
-alias viess='vim ~/.essential.vim'
-alias videmo='vim -u ~/.essential.vim ~/.vimrc'
-alias vimrc='vim ~/.vimrc'
-
-alias zshrc='$EDITOR ~/.zshrc'
-alias srczshrc='source ~/.zshrc'
-
-alias i3config='$EDITOR ~/.config/i3/config'
-alias i3statusconfig='$EDITOR ~/.config/i3status/config'
-alias i3reload='i3-msg reload'
+setopt hist_ignore_all_dups
 
 alias ..='cd ..'
-alias mb='udisksctl mount -b /dev/sdb1'
-alias ub='udisksctl unmount -b /dev/sdb1'
+alias vi='nvim'
+alias vim='mvim -v'
+alias vimrc='$EDITOR ~/.vimrc'
+alias zc='zcalc'
+alias zshrc='$EDITOR ~/.zshrc'
 
-alias kpo='ecryptfs-insert-wrapped-passphrase-into-keyring ~/.ecryptfs/wrapped-passphrase && mount -i /home/gangleri/keepass'
-alias kpc='umount /home/gangleri/keepass'
-
+alias gitc='git commit'
+alias gitch='git checkout'
+alias gitcl='git clone'
 alias gitconfig='$EDITOR ~/code/git-config/gitconfig'
 alias gitdiff='git difftool'
 alias gits='git status'
-alias gitc='git commit'
-alias gitcl='git clone'
-alias gitch='git checkout'
 
-alias rkhunt='sudo rkhunter --check'
-alias rkpropupd='sudo rkhunter --propupd'
+alias pipo='pip list --outdated'
+alias pipu='pip list --outdated | tail +3 | cut -d' ' -f 1 | xargs -n1 pip install -U'
 
-# autoload
+alias pipo3='pip3 list --outdated'
+alias ppu3='pip3 list --outdated | tail +3 | cut -d' ' -f 1 | xargs -n1 pip3 install -U'
+
+alias nvml='nvm install $(nvm ls-remote | tail -n 1 | grep -oE "v.+")'
+
 autoload zmv
 autoload zcalc
 
-# zstyle
 zstyle ':completion:*' completer _expand _complete _correct
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*' squeeze-slashes true
 
-# functions
-
 source $ZSH/oh-my-zsh.sh
+[ -f "$HOME/.travis/travis.sh" ] && source $HOME/.travis/travis.sh
+[ -f "$HOME/.config/exercism/exercism_completion.zsh" ] && source ~/.config/exercism/exercism_completion.zsh
 
-[ -s "$NVM_DIR/nvm.sh" ] && source $NVM_DIR/nvm.sh
+# placing the key bindings here allowed them to be picked up and applied correctly
+# other plug-ins attempt to bing ^r so by having it here its the last and will be
+# the one applied
+bindkey '^[OA' up-line-or-beginning-search
+bindkey '^[OB' down-line-or-beginning-search
+bindkey -s '^r' 'hh\n'
 
-source $HOME/.evm/scripts/evm
-
-
-[[ -s "/home/gangleri/.gvm/scripts/gvm" ]] && source "/home/gangleri/.gvm/scripts/gvm"
-source /usr/sbin/activate.sh
-[[ -s /home/gangleri/.rsvm/rsvm.sh ]] && . /home/gangleri/.rsvm/rsvm.sh # This loads RSVM
+PATH="/Users/alan/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/alan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/alan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/alan/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/alan/perl5"; export PERL_MM_OPT;
