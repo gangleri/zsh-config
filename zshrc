@@ -1,35 +1,74 @@
+source /usr/local/share/antigen/antigen.zsh
+
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+# export ZSH=$HOME/.oh-my-zsh
+
+antigen use oh-my-zsh
 
 ZSH_THEME="agnoster"
 CASE_SENSITIVE="false" # Case insensitive completion
 COMPLETION_WAITING_DOTS="true"
-HIST_STAMPS="dd-mm-yyyy"
+HIST_STAMPS="dd.mm.yyyy"
 
-plugins=(
-	cargo
-	colored-man-pages
-	colorize
-	cp
-	dirhistory
-	django
-	docker
-	git
-	golang
-	kubectl
-	npm
-	nvm
-	pep8
-	pip
-	pipenv
-	ssh-agent
-	sudo
-	vi-mode
-	vue
-	yarn
-	zsh-syntax-highlighting
-	zsh_reload
-)
+# plugins=(
+# 	cargo
+# 	colored-man-pages
+# 	colorize
+# 	cp
+# 	dirhistory
+# 	django
+# 	docker
+# 	git
+# 	golang
+# 	history-substring-search
+# 	kubectl
+# 	npm
+# 	nvm
+# 	pep8
+# 	pip
+# 	pipenv
+# 	ssh-agent
+# 	sudo
+# 	vi-mode
+# 	vue
+# 	yarn
+# 	zsh-autosuggestions
+# 	zsh-syntax-highlighting
+# 	zsh_reload
+# )
+
+
+antigen bundle cargo
+antigen bundle colored-man-pages
+antigen bundle colorize
+antigen bundle cp
+antigen bundle dirhistory
+antigen bundle django
+antigen bundle docker
+antigen bundle git
+antigen bundle golang
+antigen bundle history-substring-search
+antigen bundle kubectl
+antigen bundle npm
+antigen bundle nvm
+antigen bundle pep8
+antigen bundle pip
+antigen bundle pipenv
+antigen bundle ssh-agent
+antigen bundle sudo
+antigen bundle vi-mode
+antigen bundle vue
+antigen bundle yarn
+antigen bundle zsh-autosuggestions
+antigen bundle zsh-syntax-highlighting
+antigen bundle zsh_reload
+
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen theme agnoster
+antigen apply
+
 
 export ANDROID_HOME=${HOME}/Library/Android/sdk
 export BROWSER=chromium
@@ -99,8 +138,8 @@ source $ZSH/oh-my-zsh.sh
 # placing the key bindings here allowed them to be picked up and applied correctly
 # other plug-ins attempt to bing ^r so by having it here its the last and will be
 # the one applied
-bindkey '^[OA' up-line-or-beginning-search
-bindkey '^[OB' down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
 bindkey -s '^r' 'hh\n'
 
 PATH="/Users/alan/perl5/bin${PATH:+:${PATH}}"; export PATH;
