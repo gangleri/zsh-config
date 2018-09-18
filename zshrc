@@ -1,8 +1,5 @@
 source /usr/local/share/antigen/antigen.zsh
 
-# Path to your oh-my-zsh installation.
-# export ZSH=$HOME/.oh-my-zsh
-
 antigen use oh-my-zsh
 
 ZSH_THEME="agnoster"
@@ -10,34 +7,7 @@ CASE_SENSITIVE="false" # Case insensitive completion
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd.mm.yyyy"
 
-# plugins=(
-# 	cargo
-# 	colored-man-pages
-# 	colorize
-# 	cp
-# 	dirhistory
-# 	django
-# 	docker
-# 	git
-# 	golang
-# 	history-substring-search
-# 	kubectl
-# 	npm
-# 	nvm
-# 	pep8
-# 	pip
-# 	pipenv
-# 	ssh-agent
-# 	sudo
-# 	vi-mode
-# 	vue
-# 	yarn
-# 	zsh-autosuggestions
-# 	zsh-syntax-highlighting
-# 	zsh_reload
-# )
-
-
+# Register plugins included with oh-my-zsh
 antigen bundle cargo
 antigen bundle colored-man-pages
 antigen bundle colorize
@@ -63,19 +33,19 @@ antigen bundle zsh-autosuggestions
 antigen bundle zsh-syntax-highlighting
 antigen bundle zsh_reload
 
+# Register other zsh plugins
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen theme agnoster
 antigen apply
 
-
 export ANDROID_HOME=${HOME}/Library/Android/sdk
 export BROWSER=chromium
 export DEFAULT_USER=$USER
 export EDITOR="nvim"
 export GIT_EDITOR=$EDITOR
-export GOPATH=$(go env GOPATH)
+# export GOPATH=$(go env GOPATH)
 export HH_CONFIG=hicolor        # get more colors
 export HISTSIZE=999999999
 export HISTFILE=~/.zsh_history  # ensure history file visibility
@@ -131,9 +101,8 @@ zstyle ':completion:*' completer _expand _complete _correct
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*' squeeze-slashes true
 
-source $ZSH/oh-my-zsh.sh
-[ -f "$HOME/.travis/travis.sh" ] && source $HOME/.travis/travis.sh
-[ -f "$HOME/.config/exercism/exercism_completion.zsh" ] && source ~/.config/exercism/exercism_completion.zsh
+# [ -f "$HOME/.travis/travis.sh" ] && source $HOME/.travis/travis.sh
+# [ -f "$HOME/.config/exercism/exercism_completion.zsh" ] && source ~/.config/exercism/exercism_completion.zsh
 
 # placing the key bindings here allowed them to be picked up and applied correctly
 # other plug-ins attempt to bing ^r so by having it here its the last and will be
@@ -142,8 +111,3 @@ bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 bindkey -s '^r' 'hh\n'
 
-PATH="/Users/alan/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/alan/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/alan/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/alan/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/alan/perl5"; export PERL_MM_OPT;
