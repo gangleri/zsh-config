@@ -1,3 +1,4 @@
+# zmodload zsh/zprof
 source /usr/local/share/antigen/antigen.zsh
 
 antigen use oh-my-zsh
@@ -111,3 +112,4 @@ bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 bindkey -s '^r' 'hh\n'
 
+# zprof
