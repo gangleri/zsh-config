@@ -28,6 +28,7 @@ plugins=(
 	vue
 	yarn
 	zsh-syntax-highlighting
+	zsh-autosuggestions
 	zsh_reload
 )
 
@@ -38,6 +39,7 @@ export EDITOR="nvim"
 export GIT_EDITOR=$EDITOR
 export GOPATH=$(go env GOPATH)
 export HH_CONFIG=hicolor        # get more colors
+export HSTR_CONFIG=hicolor
 export HISTSIZE=999999999
 export HISTFILE=~/.zsh_history  # ensure history file visibility
 export SAVEHIST=$HISTSIZE
