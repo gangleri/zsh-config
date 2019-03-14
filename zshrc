@@ -58,12 +58,14 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$PATH:$HOME/go/bin:$HOME/.cargo/bin
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:/usr/local/flutter/bin
 export MANPATH="/usr/local/opt/make/libexec/gnuman:$MANPATH"
 export UPDATE_ZSH_DAYS=3
 
 hash -d code=$HOME/Code
 hash -d downloads=$HOME/Downloads
 hash -d go=$HOME/go/src
+hash -d icloud=$HOME/Library/Mobile\ Documents/com~apple~CloudDocs
 
 setopt EXTENDED_GLOB
 setopt NO_BEEP
@@ -113,3 +115,8 @@ bindkey '^[[B' down-line-or-beginning-search
 bindkey -s '^r' 'hh\n'
 
 # zprof
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[ -s "$HOME/.secrets" ] && . "$HOME/.secrets"
