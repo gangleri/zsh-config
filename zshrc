@@ -41,6 +41,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen theme agnoster
 antigen apply
 
+export HSTR_CONFIG=hicolor
 export ANDROID_HOME=${HOME}/Library/Android/sdk
 export BROWSER=chromium
 export DEFAULT_USER=$USER
@@ -58,7 +59,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$PATH:$HOME/go/bin:$HOME/.cargo/bin
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:/usr/local/flutter/bin
+export PATH=${PATH}:${HOME}/flutter/bin
 export MANPATH="/usr/local/opt/make/libexec/gnuman:$MANPATH"
 export UPDATE_ZSH_DAYS=3
 
