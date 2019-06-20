@@ -64,6 +64,7 @@ export MANPATH="/usr/local/opt/make/libexec/gnuman:$MANPATH"
 export UPDATE_ZSH_DAYS=3
 
 hash -d code=$HOME/Code
+hash -d dotFiles=$HOME/Code/dotFiles
 hash -d downloads=$HOME/Downloads
 hash -d go=$HOME/go/src
 hash -d icloud=$HOME/Library/Mobile\ Documents/com~apple~CloudDocs
@@ -115,9 +116,11 @@ bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 bindkey -s '^r' 'hh\n'
 
-# zprof
-
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+if [ -f "$NVM_DIR/nvm.sh" ]; then 
+	source "$NVM_DIR/nvm.sh"  # This loads nvm
+fi
 
-[ -s "$HOME/.secrets" ] && . "$HOME/.secrets"
+if [ -f "$HOME/.secrets" ]; then
+	source "$HOME/.secrets"
+fi
