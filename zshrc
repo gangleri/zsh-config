@@ -80,7 +80,7 @@ setopt hist_ignore_all_dups
 alias ..='cd ..'
 alias vi='nvim'
 alias vim='mvim -v'
-alias vimrc='$EDITOR ~/.vimrc'
+alias vimrc='$EDITOR ~/.config/nvim/init.vim'
 alias zc='zcalc'
 alias zshrc='$EDITOR ~/.zshrc'
 
