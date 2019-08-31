@@ -124,3 +124,15 @@ fi
 if [ -f "$HOME/.secrets" ]; then
 	source "$HOME/.secrets"
 fi
+
+
+h=`date +%H`
+if [ $h -lt 12 ]; then
+  m="morning"
+elif [ $h -lt 18 ]; then
+  m="afternoon"
+else
+  m="evening"
+fi
+
+figlet -f cosmic "Good ${m} Gangleri" | lolcat -t
