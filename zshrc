@@ -99,6 +99,16 @@ alias ppu3='pip3 list --outdated | tail +3 | cut -d' ' -f 1 | xargs -n1 pip3 ins
 
 alias nvml='nvm install $(nvm ls-remote | tail -n 1 | grep -oE "v.+")'
 
+# Wrap the cat command so that if it's called directly highlight is used but 
+# if it is being called as part of a pipe standard cat will be used
+function cat {
+	if [ -t 1 ]; then
+		highlight -O ansi --force $@
+	else
+		command cat $@
+	fi
+}
+
 autoload zmv
 autoload zcalc
 
@@ -135,4 +145,4 @@ else
   m="evening"
 fi
 
-figlet -f cosmic "Good ${m} Gangleri" | lolcat -t
+figlet -f graffiti "${m} Gangleri" | lolcat -t
