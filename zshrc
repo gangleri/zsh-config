@@ -99,6 +99,8 @@ alias ppu3='pip3 list --outdated | tail +3 | cut -d' ' -f 1 | xargs -n1 pip3 ins
 
 alias nvml='nvm install $(nvm ls-remote | tail -n 1 | grep -oE "v.+")'
 
+alias tree='tree -C'
+
 # Wrap the cat command so that if it's called directly highlight is used but 
 # if it is being called as part of a pipe standard cat will be used
 function cat {
