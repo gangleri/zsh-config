@@ -60,7 +60,7 @@ export PATH=$PATH:$HOME/go/bin:$HOME/.cargo/bin
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${HOME}/flutter/bin
-export MANPATH="/usr/local/opt/make/libexec/gnuman:$MANPATH"
+export MANPATH="/usr/local/opt/make/libexec/gnuman:/usr/local/opt/erlang/lib/erlang/man:$MANPATH"
 export UPDATE_ZSH_DAYS=3
 
 hash -d code=$HOME/Code
@@ -137,20 +137,10 @@ if [ -f "$HOME/.secrets" ]; then
 	source "$HOME/.secrets"
 fi
 
+lolcat -t "${HOME}/Code/dotFiles/zsh-config/message"
+[ -f ~/.brewup ] && lolcat -t ~/.brewup && rm ~/.brewup 
 
-h=`date +%H`
-if [ $h -lt 12 ]; then
-  m="morning"
-elif [ $h -lt 18 ]; then
-  m="afternoon"
-else
-  m="evening"
-fi
+# added by pipsi (https://github.com/mitsuhiko/pipsi)
+export PATH="${HOME}/.local/bin:$PATH"
 
-figlet -f graffiti "${m} Gangleri" | lolcat -t
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/alan/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/alan/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/alan/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/alan/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
