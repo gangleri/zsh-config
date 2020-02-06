@@ -138,7 +138,10 @@ if [ -f "$HOME/.secrets" ]; then
 fi
 
 lolcat -t "${HOME}/Code/dotFiles/zsh-config/message"
-[ -f ~/.brewup ] && lolcat -t ~/.brewup && rm ~/.brewup 
+if [ -f ~/.brew_updated ]; then
+	lolcat -t <(print "Brew packages updated:") <(cat ~/.brew_updated | ggrep -oP '(\w+)\s✔' | tr '\n' ' ' | tr -d ' '| tr '✔' ' ' ) <(print '\n')
+	# rm ~/.brew_updated
+fi
 
 # added by pipsi (https://github.com/mitsuhiko/pipsi)
 export PATH="${HOME}/.local/bin:$PATH"
