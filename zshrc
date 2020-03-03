@@ -84,13 +84,6 @@ alias vimrc='$EDITOR ~/.config/nvim/init.vim'
 alias zc='zcalc'
 alias zshrc='$EDITOR ~/.zshrc'
 
-alias gitc='git commit'
-alias gitch='git checkout'
-alias gitcl='git clone'
-alias gitconfig='$EDITOR ~/code/git-config/gitconfig'
-alias gitdiff='git difftool'
-alias gits='git status'
-
 alias pipo='pip list --outdated'
 alias pipu='pip list --outdated | tail +3 | cut -d' ' -f 1 | xargs -n1 pip install -U'
 
@@ -100,6 +93,8 @@ alias ppu3='pip3 list --outdated | tail +3 | cut -d' ' -f 1 | xargs -n1 pip3 ins
 alias nvml='nvm install $(nvm ls-remote | tail -n 1 | grep -oE "v.+")'
 
 alias tree='tree -C'
+
+alias grep="ggrep $GREP_OPTIONS"
 
 # Wrap the cat command so that if it's called directly highlight is used but 
 # if it is being called as part of a pipe standard cat will be used
@@ -121,12 +116,14 @@ zstyle ':completion:*' squeeze-slashes true
 # [ -f "$HOME/.travis/travis.sh" ] && source $HOME/.travis/travis.sh
 # [ -f "$HOME/.config/exercism/exercism_completion.zsh" ] && source ~/.config/exercism/exercism_completion.zsh
 
+
 # placing the key bindings here allowed them to be picked up and applied correctly
 # other plug-ins attempt to bing ^r so by having it here its the last and will be
 # the one applied
 bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 bindkey -s '^r' 'hh\n'
+bindkey -s '^q' 'br\n'
 
 export NVM_DIR="$HOME/.nvm"
 if [ -f "$NVM_DIR/nvm.sh" ]; then 
@@ -153,3 +150,8 @@ if [ -f '/Users/alan/Applications/google-cloud-sdk/path.zsh.inc' ]; then . '/Use
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/alan/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/alan/Applications/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+export PATH="$PATH:/usr/local/opt/coreutils/libexec/gnubin"
+
+source /Users/alan/Library/Preferences/org.dystroy.broot/launcher/bash/br
