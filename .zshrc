@@ -96,6 +96,8 @@ alias tree='tree -C'
 
 alias grep="ggrep $GREP_OPTIONS"
 
+alias mgit="mgitstatus"
+
 # Wrap the cat command so that if it's called directly highlight is used but 
 # if it is being called as part of a pipe standard cat will be used
 function cat {
@@ -134,8 +136,7 @@ if [ -f "$HOME/.secrets" ]; then
 	source "$HOME/.secrets"
 fi
 
-# lolcat -t "${HOME}/Code/dotFiles/zsh-config/message"
-figlet -f Bloody $USER | lolcat -t
+lolcat -t "${HOME}/.skull"
 
 # added by pipsi (https://github.com/mitsuhiko/pipsi)
 export PATH="${HOME}/.local/bin:$PATH"
@@ -151,4 +152,4 @@ if [ -f '/Users/alan/Applications/google-cloud-sdk/completion.zsh.inc' ]; then .
 
 export PATH="$PATH:/usr/local/opt/coreutils/libexec/gnubin"
 
-source /Users/alan/Library/Preferences/org.dystroy.broot/launcher/bash/br
+# source /Users/alan/Library/Preferences/org.dystroy.broot/launcher/bash/br
